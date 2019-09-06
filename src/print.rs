@@ -19,12 +19,14 @@ const DEFAULT_PROMPT_ORDER: &[&str] = &[
     "git_state",
     "git_status",
     "package",
-    "nodejs",
-    "ruby",
-    "rust",
-    "python",
+    // ↓ Toolchain modules ↓
     "golang",
     "java",
+    "nodejs",
+    "python",
+    "ruby",
+    "rust",
+    // ↑ Toolchain modules ↑
     "nix_shell",
     "cmd_duration",
     "line_break",
