@@ -21,6 +21,7 @@ pub const ALL_MODULES: &[&str] = &[
     "line_break",
     "nix_shell",
     "nodejs",
+    "npm",
     "package",
     "python",
     "ruby",

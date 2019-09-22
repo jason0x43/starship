@@ -12,6 +12,7 @@ mod jobs;
 mod line_break;
 mod nix_shell;
 mod nodejs;
+mod npm;
 mod package;
 mod python;
 mod ruby;
@@ -30,6 +31,7 @@ pub fn handle<'a>(module: &str, context: &'a Context) -> Option<Module<'a>> {
         "directory" => directory::module(context),
         "character" => character::module(context),
         "nodejs" => nodejs::module(context),
+        "npm" => npm::module(context),
         "rust" => rust::module(context),
         "python" => python::module(context),
         "ruby" => ruby::module(context),
