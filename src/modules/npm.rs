@@ -7,8 +7,19 @@ use super::{Context, Module};
 /// Creates a module with the current NPM registry URL
 ///
 /// Will display the NPM registry URL if all of the following criteria are met:
+///     - A .nodenv-vars file exists in the current directory or any parent
 ///     - The `nodenv` command is available and it has a definition for `npm_config_registry`
 pub fn module<'a>(context: &'a Context) -> Option<Module<'a>> {
+    // TODO: this should also check parent directories
+    let is_npm_project = context
+        .try_begin_scan()?
+        .set_files(&[".nodenv-vars"])
+        .is_match();
+
+    if !is_npm_project {
+        return None;
+    }
+
     match get_npm_url() {
         Some(npm_url) => {
             const NODE_CHAR: &str = "⬢ ";
